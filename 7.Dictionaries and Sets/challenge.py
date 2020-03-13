@@ -1,4 +1,5 @@
-locations = {0: "You are sitting in front of a computer learning Python",
+locations = {0: "I'm quiting the game",
+             1: "You are sitting in front of a computer learning Python",
              2: "You are standing at the end of a road before a small brick building",
              3: "You are inside a building, a well house for a small stream",
              4: "You are in a valley beside a stream",
@@ -17,12 +18,14 @@ player = {"QUIT": "Q",
           "EAST": "E",
           "WEST": "W",
           }
-
+# print(locations[0].split())
+# print(locations[3].split(","))
+# print(','.join(locations[0].split()))
 loc = 1
 while True:
     availableExits = ", ".join(exits[loc].keys())
 
-    # print(locations[loc])
+    print(locations[loc])
 
     if loc == 0:
         break
@@ -31,9 +34,15 @@ while True:
     print()
     # Parse user input, using our vocabulary dictionary if if necessary
     if len(direction) > 1:
-        for word in player:
-            if word in direction:
+        words = direction.split()
+        for word in words:
+            if word in player:
                 direction = player[word]
+                break
+
+        # for word in player:
+        #     if word in direction:
+        #         direction = player[word]
 
     if direction in exits[loc]:
         loc = exits[loc][direction]
