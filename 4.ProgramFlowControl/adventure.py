@@ -7,5 +7,12 @@ while chosen_exit not in available_exits:
         print("game over")
         break
 
+print("aren't you glad you got out of there")
+
+for i in range(0, 20):
+    if i % 3 != 0 and i % 5 != 0:
+        print(i)
+
 else:
     print("aren't you glad you got out of there")
+
